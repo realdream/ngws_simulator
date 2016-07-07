@@ -1,0 +1,33 @@
+ngws:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  wheel_FR_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_FR_joint
+    pid: {p: 200.0, i: 0.0, d: 20}
+  wheel_FL_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_FL_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+  wheel_BR_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_BR_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+  wheel_BL_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_BL_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+
+
+  wheel_group_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: 
+     - wheel_FR_joint
+     - wheel_FL_joint
+     - wheel_BR_joint
+     - wheel_BL_joint
+    pid: {p: 200.0, i: 0.0, d: 20}

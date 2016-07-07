@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<!-- Revolute-Revolute Manipulator -->
+<robot name="ngws" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Constants for robot dimensions -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <xacro:property name="mass" value="10" /> <!-- arbitrary value for mass -->
+  <xacro:property name="width" value="0.1" /> <!-- Square dimensions (widthxwidth) of beams -->
+  <xacro:property name="height1" value="2" /> <!-- Link 1 -->
+  <xacro:property name="height2" value="1" /> <!-- Link 2 -->
+  <xacro:property name="height3" value="1" /> <!-- Link 3 -->
+  <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
+  <xacro:property name="axel_offset" value="0.05" /> <!-- Space btw top of beam and the each joint -->
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find ngws_description)/urdf/gazebo/addon.gazebo" />
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find ngws_description)/urdf/materials/materials.xacro" />
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+<!--   <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint> -->
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.03" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/cheshen.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/cheshen.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+    ixx="${mass / 12.0 * (width*width + height1*height1)}" ixy="0.0" ixz="0.0"
+    iyy="${mass / 12.0 * (height1*height1 + width*width)}" iyz="0.0"
+    izz="${mass / 12.0 * (width*width + width*width)}"/>
+    </inertial>
+  </link>
+
+  <!-- Wheel FR -->
+  <joint name="wheel_FR_joint" type="continuous">
+    <axis xyz="0 0 -1" />
+    <origin xyz="0.2 -0.2 0.05" rpy="${PI/2.0} 0 0"/>
+    <parent link="base_link"/>
+    <child link="wheel_FR_link"/>
+  </joint>
+
+  <link name="wheel_FR_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <mass value="2" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+        ixx="0.005" ixy="0.0" ixz="0.0"
+        iyy="0.005" iyz="0.0"
+        izz="0.009"/>
+    </inertial>
+  </link>
+
+  <!-- Wheel FL -->
+  <joint name="wheel_FL_joint" type="continuous">
+    <axis xyz="0 0 -1" />
+    <origin xyz="0.2 0.2 0.05" rpy="${PI/2.0} 0 0"/>
+    <parent link="base_link"/>
+    <child link="wheel_FL_link"/>
+  </joint>
+
+
+  <link name="wheel_FL_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <mass value="2" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+        ixx="0.005" ixy="0.0" ixz="0.0"
+        iyy="0.005" iyz="0.0"
+        izz="0.009"/>
+    </inertial>
+  </link>
+
+<!-- Wheel BR -->
+  <joint name="wheel_BR_joint" type="continuous">
+    <axis xyz="0 0 -1" />
+    <origin xyz="-0.2 -0.2 0.05" rpy="${PI/2.0} 0 0"/>
+    <parent link="base_link"/>
+    <child link="wheel_BR_link"/>
+  </joint>
+
+  
+  <link name="wheel_BR_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <mass value="2" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+        ixx="0.005" ixy="0.0" ixz="0.0"
+        iyy="0.005" iyz="0.0"
+        izz="0.009"/>
+    </inertial>
+  </link>
+
+<!-- Wheel BL -->
+  <joint name="wheel_BL_joint" type="continuous">
+    <axis xyz="0 0 -1" />
+    <origin xyz="-0.2 0.2 0.05" rpy="${PI/2.0} 0 0"/>
+    <parent link="base_link"/>
+    <child link="wheel_BL_link"/>
+  </joint>
+
+  
+  <link name="wheel_BL_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <mass value="2" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+        ixx="0.005" ixy="0.0" ixz="0.0"
+        iyy="0.005" iyz="0.0"
+        izz="0.009"/>
+    </inertial>
+  </link>
+
+
+
+
+
+
+  <!-- Laser -->
+
+  <joint name="laser_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0 0 0.35" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="laser_link"/>
+  </joint>
+
+
+  <link name="laser_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+  <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ngws_description/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.2" rpy="0 ${PI/2.0} 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Camera -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+  <box size="0.06 0.06 0.06 "/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+  <box size="0.06 0.06 0.06"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_FR_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_FL_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_BR_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel_BL_joint">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+</robot>

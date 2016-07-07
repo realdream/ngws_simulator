@@ -1,0 +1,573 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"map",
+				"mapInfo"
+			],
+			[
+				"time",
+				"time_now"
+			],
+			[
+				"N",
+				"NULL"
+			],
+			[
+				"gz",
+				"gzwarn"
+			],
+			[
+				"NULL",
+				"NULL"
+			],
+			[
+				"set",
+				"setting"
+			],
+			[
+				"Y_ESC",
+				"Y_ESC_output	(yuneec_esc3.cpp)"
+			],
+			[
+				"Y",
+				"Y_esc"
+			],
+			[
+				"crc",
+				"crcTable"
+			],
+			[
+				"actuator_controls",
+				"actuator_controls_0"
+			],
+			[
+				"GPIO_PuPd_P",
+				"GPIO_PuPd_UP"
+			],
+			[
+				"uin",
+				"uint32_t"
+			],
+			[
+				"uint",
+				"uint32_t"
+			],
+			[
+				"SON",
+				"SONAR_SCALE"
+			],
+			[
+				"SONA",
+				"SONAR_SCALE"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 117.0,
+		"last_filter": "Package Control: in",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'PackageControl.sublime-package'; ipp = sublime.installed_packages_path();urllib.request.install_opener( urllib.request.build_opener(urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf),'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace('','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/materials.xacro",
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/rrbot.gazebo",
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/rrbot.xacro",
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_control/config/rrbot_control.yaml",
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_control/launch/rrbot_control.launch",
+		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_gazebo/launch/rrbot_world.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/mav_with_waypoint_publisher.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/spawn_mav.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/mav_hovering_example.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/launch/xacrodisplay_pelican_base.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf/iris.xacro",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/roll_pitch_yawrate_thrust_controller.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/motor_controller.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/nodes/roll_pitch_yawrate_thrust_controller_node.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/nodes/roll_pitch_yawrate_thrust_controller_node.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/example_waypoints.txt",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/mav.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/library/roll_pitch_yawrate_thrust_controller.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf/pelican.xacro",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf/component_snippets.xacro",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/rate_controller.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/nodes/lee_position_controller_node.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/lee_position_controller.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_odometry_plugin.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo_plugins/include/rotors_gazebo_plugins/gazebo_odometry_plugin.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo_plugins/src/gazebo_octomap_plugin.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf/multirotor_base.xacro",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf/iris_base.xacro",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/motor_controller.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/rate_controller.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/src/nodes/lee_position_controller_node.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/common.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/parameters.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_control/include/rotors_control/parameters_ros.h",
+		"/home/yrk/youbot/m",
+		"/home/ros/mav/rotors_simulator/src/octomap_mapping/octomap_server/launch/octomap_tracking_server.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/lee_controller_iris.yaml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/roll_pitch_yawrate_thrust_controller_iris.yaml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/CHANGELOG.rst",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/package.xml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/CMakeLists.txt",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/mav_with_joy.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_joy_interface/src/joy.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/launch/publish_waypoint.launch",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/src/hovering_example.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/src/waypoint_publisher_file.cpp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_joy_interface/include/rotors_joy_interface/joy.h",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/firefly.yaml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/example_waypoints_powerplant.txt",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/example_odometry_plugin_map2.bmp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/example_odometry_plugin_map1.bmp",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/pelican.yaml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/roll_pitch_yawrate_thrust_controller_asymmetric_quadrotor.yaml",
+		"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_gazebo/resource/roll_pitch_yawrate_thrust_controller_pelican.yaml",
+		"/home/yrk/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/yrk/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/src/gazebo_opticalFlow_plugin.cpp",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/flow_cam/model.sdf",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/include/gazebo_opticalFlow_plugin.h",
+		"/home/project/px4/Firmware/Makefile",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc/CMakeLists.txt",
+		"/home/project/px4/Firmware/cmake/configs/nuttx_px4fmu-v4_default.cmake",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/src/gazebo_main_camera_plugin.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc/yuneec_esc3.cpp",
+		"/home/project/px4/test/main.c",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/CMakeLists.txt",
+		"/home/project/px4/test/CMakeLists.txt",
+		"/home/ros/robocore/src/headless_move_base_master/CMakeLists.txt",
+		"/home/project/px4/Firmware/src/drivers/mpu6000/CMakeLists.txt",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/iris_two_cam/iris_two_cam.sdf",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/main_cam/model.sdf",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/include/gazebo_main_camera_plugin.h",
+		"/home/project/px4/test/Makefile",
+		"/home/project/px4/test/1.c",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/iris_two_cam/model.config",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/worlds/iris_two_cam.world",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/main_cam/model.config",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/flow_cam/model.config",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/include/gazebo_multirotor_base_plugin.h",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/iris/iris.sdf",
+		"/home/project/px4/Firmware/Tools/sitl_gazebo/models/plane/model.config",
+		"/home/project/px4/Firmware/src/firmware/posix/CMakeLists.txt",
+		"/home/project/px4/Firmware/posix-configs/SITL/init/rcS_gazebo_iris",
+		"/home/project/px4/Firmware/src/platforms/ros/nodes/mc_mixer/mc_mixer.cpp",
+		"/home/project/px4/Firmware/src/modules/systemlib/mixer/mixer_group.cpp",
+		"/home/project/px4/Firmware/src/modules/systemlib/mixer/mixer_load.c",
+		"/home/project/px4/Firmware/src/modules/systemlib/mixer/mixer.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc2/yuneec_esc2.cpp",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/mixers/README.md",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/mixers/tail_sit.mix",
+		"/home/project/px4/Firmware/src/modules/systemlib/mixer/mixer_load.h",
+		"/home/project/px4/Firmware/src/drivers/pwm_out_sim/pwm_out_sim.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc2/CMakeLists.txt",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc3/CMakeLists.txt",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc3/yuneec_esc3.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc/yuneec_esc.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc2/yuneec_esc2_params.c",
+		"/home/project/px4/Firmware/src/drivers/drv_pwm_output.h",
+		"/home/project/px4/Firmware/src/modules/uORB/uORB.h",
+		"/home/project/px4/Firmware/src/drivers/px4fmu/fmu.cpp",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/mixers/quad_x_vtol.main.mix",
+		"/home/project/px4/Firmware/src/drivers/px4fmu/CMakeLists.txt",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/mixers/quad_x.main.mix",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/mixers/caipirinha_vtol.main.mix",
+		"/home/project/px4/Firmware/NuttX/misc/tools/kconfig-frontends/frontends/qconf/qconf.cc",
+		"/home/project/px4/Firmware/NuttX/nuttx/fs/fs_ioctl.c",
+		"/home/project/px4/Firmware/build_px4fmu-v4_default/src/systemcmds/topic_listener/topic_listener.cpp",
+		"/home/project/px4/Firmware/src/drivers/pwm_out_sim2/pwm_out_sim2.cpp",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc/CRC8.h",
+		"/home/project/px4/Firmware/src/drivers/yuneec_esc/ESCBus.c",
+		"/home/project/px4/Firmware/src/drivers/pwm_out_sim2/CMakeLists.txt",
+		"/home/project/px4/Firmware/ROMFS/px4fmu_common/init.d/rcS",
+		"/home/project/px4/Firmware/NuttX/apps/examples/sendmail/hostdefs.h",
+		"/home/project/px4/Firmware/msg/actuator_controls.msg",
+		"/home/project/px4/Firmware/src/drivers/device/cdev.cpp",
+		"/home/project/px4/Firmware/NuttX/NxWidgets/ChangeLog.txt",
+		"/home/project/px4/Firmware/src/drivers/boards/sitl/sitl_led.c",
+		"/home/project/px4/Firmware/NuttX/nuttx/include/termios.h",
+		"/home/project/px4/Firmware/src/drivers/drv_hrt.h",
+		"/home/project/px4/Firmware/src/modules/ekf_att_pos_estimator/AttitudePositionEstimatorEKF.h",
+		"/home/project/px4/Firmware/msg/actuator_outputs.msg",
+		"/home/project/px4/Firmware/msg/actuator_armed.msg",
+		"/home/project/px4/Firmware/cmake/configs/qurt_eagle_default.cmake",
+		"/home/project/px4/Firmware/msg/battery_status.msg",
+		"/home/project/px4/Firmware/src/drivers/mpu6000/mpu6000.cpp",
+		"/home/project/px4/Firmware/src/modules/systemlib/param/param.h",
+		"/home/project/px4/Firmware/src/drivers/pwm_out_rc_in/pwm_out_rc_in.cpp",
+		"/home/project/px4/Firmware/src/drivers/snapdragon_rc_pwm/snapdragon_rc_pwm.cpp"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 145.0,
+		"where_history":
+		[
+			"/home/yrk/.gazebo/models/lamp_post",
+			"/home/ros/gazebo_test/src/gazebo_ros_demos",
+			"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description",
+			"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description/urdf",
+			"/home/project/px4/Firmware",
+			"/home/project/px4/Firmware/src/drivers/yuneec_esc",
+			"/home/project/px4/Firmware/Tools/sitl_gazebo/models",
+			"/home/project/px4/Firmware/Tools/sitl_gazebo",
+			"/home/project/px4/Firmware",
+			"/home/project/px4/Firmware/src/drivers",
+			"/home/project/px4/Firmware/ROMFS/px4fmu_common",
+			"/home/project/px4/Firmware/src/modules/systemlib/mixer",
+			"/home/project/px4/Firmware/src/drivers/yuneec_esc3",
+			"/home/project/px4/Firmware/src/drivers/yuneec_esc2",
+			"/home/project/px4/Firmware/ROMFS/px4fmu_common/init.d",
+			"/home/project/px4/Firmware/src/drivers/pwm_out_sim2",
+			"/home/project/px4/Firmware/ROMFS/px4fmu_common",
+			"/home/project/px4/Firmware/NuttX",
+			"/home/project/px4/Firmware/src",
+			"/home/project/px4/Firmware/ROMFS",
+			"/home/project/px4/Firmware/ROMFS/px4fmu_common/init.d",
+			"/home/project/px4/Firmware/cmake/configs",
+			"/home/project/px4/Firmware/src",
+			"/home/project/px4/Firmware/src/drivers/yuneec_esc",
+			"/home/project/px4/Firmware",
+			"/home/project/px4/Firmware/src/drivers/Yuneec_esc",
+			"/home/project/px4/Firmware",
+			"/home/project/Flow/",
+			"/home/project/Flow/src",
+			"/home/ros/px4/firmware/Flow/",
+			"/home/ros/px4/firmware/Flow/inc"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Lamp_Post_Diffuse",
+			"light",
+			"rrbot.xml",
+			"mav_description",
+			"gazebo_odometry_plugin",
+			"so",
+			"commands_",
+			"CommandPoseCallback",
+			"gazebo",
+			"find",
+			"gazebo",
+			"./gazebo",
+			"gaze",
+			"cb_need_data",
+			"bufferQ",
+			"dt",
+			"rate",
+			"cameraPlugin2_ptr",
+			"cameraPlugin2_ptr->height,",
+			"rate",
+			"call",
+			"_need_data",
+			"width",
+			"start_thread",
+			"cb_need_data",
+			"yuneec_esc3",
+			"./",
+			"flow",
+			"floew",
+			"CameraPlugin1",
+			"CameraPlugin2",
+			"CameraPlugin",
+			"optical_flow",
+			"rotors_description",
+			"rotors",
+			"rotor",
+			"1.5708",
+			"rotor",
+			"rotate",
+			"rotors",
+			"iris_opt_flow",
+			"gazebo_iris_opt_flow",
+			"cmake_targets",
+			"gazebo",
+			"gazebo_iris_opt_flow",
+			"gazebo",
+			"gazebo\n",
+			"make posix_sitl_default gazebo\n",
+			"posix_sitl_default",
+			"iris_opt_flow.sdf",
+			"cycle_trampoline",
+			"cycle",
+			"mixer",
+			"_mode",
+			"pwm_ioctl",
+			"_mixers",
+			"_controls",
+			"px4_getopt",
+			"device",
+			"task",
+			"g_port_mode",
+			"MODE_2PWM",
+			"PORT2_8PWM",
+			"init",
+			"g_Y_ESC",
+			"_uart_dev_path",
+			"g_Y_ESC",
+			"device",
+			"_task_should_exit",
+			"_uart_device",
+			"_device",
+			"_uart_fd",
+			"task_main",
+			"task",
+			"mixer load",
+			"_groups_required",
+			"groups_required",
+			"requ",
+			"ioc",
+			"g_pwm_sim",
+			"required",
+			"MIXERIOCLOADBUF",
+			"MIXERIOCADDSIMPLE",
+			"groups_required",
+			"load",
+			"groups_required",
+			"_groups_required",
+			"subscribe",
+			"_poll_fds_num",
+			"No valid fds",
+			"PWM_OUTPUT0_DEVICE_PATH",
+			"PWM",
+			"PWM_OUTPUT0_DEVICE_PATH",
+			"PWM_OUTPUT_BASE_DEVICE_PATH",
+			"PWMSim",
+			"pwm_out_sim",
+			"YESC2_DEVICE_PATH",
+			"capture_ioctl",
+			"gpio_ioctl(",
+			"gpio_write",
+			"gpio_reset(",
+			"_ngpio",
+			"YESC2::_ngpio",
+			"FMU",
+			"RC_SERIAL_PORT",
+			"_outputs_pub",
+			"rc",
+			"fmu",
+			"PWM_AUX_REV",
+			"PX4FMU",
+			"px4fmu",
+			"_mixers",
+			"init",
+			"ioctl",
+			"init",
+			"ioctl",
+			"pwm_ioctl",
+			"_mixers",
+			"task_main",
+			"task_main_trampoline",
+			"pwm_out_sim",
+			"init",
+			"new_mode",
+			"mixer",
+			"_mixers",
+			"ioctl",
+			"_mixers",
+			"actuator_con"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"rotors_description",
+			"yuneec_esc",
+			"CameraPlugin",
+			"CameraPlugin1",
+			"CameraPlugin2",
+			"main_camera",
+			"_uart_dev_path",
+			"g_Y_ESC",
+			"Y_ESC_OUTPUT0_DEVICE_PATH",
+			"Y_ESC",
+			"yuneec_esc3",
+			"ESC",
+			"esc",
+			"CHANNEL_AUX_REV",
+			"YESC2",
+			"yuneec_esc2",
+			"PWMSim2",
+			"pwm_out_sim2",
+			"yuneec_esc",
+			"esc",
+			"yuneec_esc",
+			"Debug"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 37.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 154.0
+	},
+	"pinned_build_system": "",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"src/firmware/posix/CMakeLists.txt"
+			],
+			[
+				"iris_opt_flow",
+				"Tools/sitl_gazebo/models/iris_opt_flow/model.config"
+			],
+			[
+				"rcs_",
+				"posix-configs/SITL/init/rcS_gazebo_iris"
+			],
+			[
+				"caipi",
+				"ROMFS/px4fmu_common/mixers/caipirinha_vtol.main.mix"
+			],
+			[
+				"lintener",
+				"build_px4fmu-v4_default/src/systemcmds/topic_listener/topic_listener.cpp"
+			],
+			[
+				"drv_led",
+				"src/drivers/drv_led.h"
+			],
+			[
+				"termios",
+				"NuttX/nuttx/include/termios.h"
+			],
+			[
+				"param.",
+				"src/modules/systemlib/param/param.h"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 392.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
