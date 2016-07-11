@@ -10,6 +10,7 @@
    gazebo6
   
  set up:
+	git submodule init
         git submodule update
         sudo apt-get install ros-indigo-ros-controllers
 	cd {workspace} 
