@@ -11,11 +11,41 @@
 
 
 
+  <gazebo reference="wheel_FL_joint">
+    <stopCfm>1000</stopCfm>
+    <stopErp>1000</stopErp>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.001</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_joint">
+    <stopCfm>0.001</stopCfm>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.001</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_BL_joint">
+    <stopCfm>0.001</stopCfm>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.001</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_BR_joint">
+    <stopCfm>0.001</stopCfm>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.001</fudgeFactor>
+  </gazebo>
+
+
+
+
   <gazebo reference="base_link">
     <mu1>0</mu1>
     <mu2>0</mu2>
     <fdir1>1 0 0</fdir1>
-
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
     <material>Gazebo/Orange</material>
   </gazebo>
 
@@ -23,6 +53,10 @@
     <mu1>5.5</mu1>
     <mu2>5.5</mu2>
     <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -30,6 +64,10 @@
     <mu1>5.5</mu1>
     <mu2>5.5</mu2>
     <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -37,6 +75,10 @@
     <mu1>5.5</mu1>
     <mu2>5.5</mu2>
     <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -44,6 +86,10 @@
     <mu1>5.5</mu1>
     <mu2>5.5</mu2>
     <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
 
@@ -54,6 +100,8 @@
   <gazebo reference="laser_link">
     <material>Gazebo/Grey</material>
   </gazebo>
+
+
 
 
   <!-- Link1 -->

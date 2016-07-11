@@ -8,6 +8,9 @@
   work with:
    ros indigo@ubuntu14.04.3
    gazebo6
-  package required:
-   ros controller
+  
+ set up:
+        git submodule update
         sudo apt-get install ros-indigo-ros-controllers
+	cd {workspace} 
+	catkin_make
