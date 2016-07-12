@@ -290,6 +290,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"          <cylinder radius=\"0.06\" length=\"0.5\"/>",
+			"          <cylinder radius=\"0.06\" length=\"0.00005\"/>",
+			"          <cylinder>\n            <radius>0.06</radius>\n            <length>0.00005</length>\n          </cylinder>",
 			"wheel_FL_joint",
 			"    <kp>100000</kp>\n    <kd>100000</kd>",
 			" <mu1>1.0</mu1>\n    <mu2>1.0</mu2>",
@@ -414,10 +417,7 @@
 			"init",
 			"ioctl",
 			"init",
-			"ioctl",
-			"pwm_ioctl",
-			"_mixers",
-			"task_main"
+			"ioctl"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -425,6 +425,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"          <cylinder radius=\"0.075\" length=\"0.005\"/>",
+			"          <cylinder radius=\"0.06\" length=\"0.5\"/>",
+			"          <cylinder radius=\"0.06\" length=\"0.00005\"/>",
 			"    <kp>0</kp>\n    <kd>0</kd>",
 			" <mu1>2.0</mu1>\n    <mu2>2.0</mu2>",
 			"    <mu1>1.0</mu1>\n    <mu2>1.0</mu2>",
@@ -504,7 +507,7 @@
 	"pinned_build_system": "",
 	"replace":
 	{
-		"height": 150.0
+		"height": 92.0
 	},
 	"save_all_on_build": true,
 	"select_file":
