@@ -1,7 +1,8 @@
 <launch>
   <arg name="id" default=""/>
+  <arg name="this_ns" default="ngws" />
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <group ns="ngws$(arg id)">
+  <group ns="$(arg this_ns)$(arg id)">
     <rosparam file="$(find ngws_control)/config/ngws_control.yaml" command="load"/>
 
     <!-- load the controllers -->
@@ -20,7 +21,7 @@
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
   	respawn="false" output="screen">
-      <remap from="/joint_states" to="/ngws$(arg id)/joint_states" />
+      <remap from="/joint_states" to="$(arg this_ns)$(arg id)/joint_states" />
     </node>
   </group>
     <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->

@@ -1,0 +1,23 @@
+<launch>
+  <arg name="parent_ns" default="" />
+  <arg name="this_ns" default="ngws" />
+  <arg name="id" default="" />
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="0" />
+  <arg name="R" default="0" />
+  <arg name="P" default="0" />
+  <arg name="Y" default="0" />
+  <group ns="$(arg this_ns)$(arg id)/">
+    <param name="robot_description"
+     command="$(find xacro)/xacro.py '$(find ngws_description)/urdf/ngws_v0.0.xacro'" />
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model $(arg this_ns)$(arg id) -robot_namespace $(arg parent_ns)$(arg this_ns)$(arg id) -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/>
+  </group>
+  <include file="$(find ngws_control)/launch/ngws_control.launch" >
+    <arg name="id" value="$(arg id)" />
+    <arg name="this_ns" value="$(arg this_ns)" />
+  </include>
+</launch>
