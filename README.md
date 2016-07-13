@@ -3,6 +3,7 @@
 * gazebo simulator for ngws
 * Version v1.0
 
+* test: add by hjm
 
 * set up & Configuration
   work with:
