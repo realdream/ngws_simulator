@@ -3,8 +3,11 @@
   <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
   <world name="default">
-    <include>
+<!--     <include>
       <uri>model://ground_plane</uri>
+    </include> -->
+    <include>
+      <uri>model://asphalt_plane</uri>
     </include>
 
     <!-- Global light source -->

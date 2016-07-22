@@ -4,18 +4,16 @@
 
   <!-- Constants for robot dimensions -->
   <xacro:property name="PI" value="3.1415926535897931"/>
-  <xacro:property name="mass" value="10" /> <!-- arbitrary value for mass -->
-  <xacro:property name="width" value="0.1" /> <!-- Square dimensions (widthxwidth) of beams -->
-  <xacro:property name="height1" value="2" /> <!-- Link 1 -->
-  <xacro:property name="height2" value="1" /> <!-- Link 2 -->
-  <xacro:property name="height3" value="1" /> <!-- Link 3 -->
-  <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
-  <xacro:property name="axel_offset" value="0.05" /> <!-- Space btw top of beam and the each joint -->
+  <xacro:property name="mass" value="50" /> <!-- arbitrary value for mass -->
+  <xacro:property name="width" value="0.6" /> <!-- Square dimensions (widthxwidth) of beams -->
+
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find ngws_description)/urdf/gazebo/addon.gazebo" />
+  <xacro:include filename="$(find ngws_description)/urdf/gazebo/addon_v1.0.gazebo" />
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find ngws_description)/urdf/materials/materials.xacro" />
+
+  <xacro:include filename="$(find ngws_description)/urdf/mecanum_wheel/mecanum_wheel.xacro" />
 
   <!-- Used for fixing robot to Gazebo 'base_link' -->
 <!--   <link name="world"/>
@@ -51,19 +49,113 @@
     </visual>
 
     <inertial>
-      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
       <mass value="${mass}"/>
       <inertia
-    ixx="${mass / 12.0 * (width*width + height1*height1)}" ixy="0.0" ixz="0.0"
-    iyy="${mass / 12.0 * (height1*height1 + width*width)}" iyz="0.0"
-    izz="${mass / 12.0 * (width*width + width*width)}"/>
+    ixx="${mass*0.083*2*width*width}" ixy="0.0" ixz="0.0"
+    iyy="${mass*0.083*2*width*width}" iyz="0.0"
+    izz="${mass*0.083*2*width*width}"/>
     </inertial>
   </link>
 
+
+
+  <!-- subwheel -->
+    <xacro:property name="wheel_mass" value="2"/>
+    <xacro:property name="main_radius" value="0.041"/>
+    <xacro:property name="caster" value="${PI*0.25}"/>
+
+    <xacro:property name="main_mesh_file" value="package://ngws_description/meshes/mecanum_wheel.stl"/>
+    <xacro:property name="main_mesh_file_rev" value="package://ngws_description/meshes/mecanum_wheel_r.stl"/>
+    <xacro:property name="sub_mesh_file" value="package://ngws_description/meshes/mecanum_miniwheel.stl"/>
+
+
+  <!-- FR -->
+  <xacro:mecanum_wheel_macro
+    name="wheel_FR"
+    parent_link="base_link"
+    mass="${wheel_mass}"
+    has_10_subwheel="true"
+    main_radius="${main_radius}"
+    caster="${caster}"
+    main_mesh_file="${main_mesh_file_rev}"
+    sub_mesh_file="${sub_mesh_file}"
+    mesh_scale="0.001"
+    x="0.3"
+    y="-0.3"
+    z="0.02"
+    R="0.0"
+    P="0.0"
+    Y="${PI/2}"
+    >
+  </xacro:mecanum_wheel_macro>
+
+<!-- FL -->
+
+  <xacro:mecanum_wheel_macro
+    name="wheel_FL"
+    parent_link="base_link"
+    mass="${wheel_mass}"
+    has_10_subwheel="true"
+    main_radius="${main_radius}"
+    caster="-${caster}"
+    main_mesh_file="${main_mesh_file}"
+    sub_mesh_file="${sub_mesh_file}"
+    mesh_scale="0.001"
+    x="0.3"
+    y="0.3"
+    z="0.02"
+    R="0.0"
+    P="0.0"
+    Y="${PI/2}"
+    >
+  </xacro:mecanum_wheel_macro>
+<!-- BR -->
+  <xacro:mecanum_wheel_macro
+    name="wheel_BR"
+    parent_link="base_link"
+    mass="${wheel_mass}"
+    has_10_subwheel="true"
+    main_radius="${main_radius}"
+    caster="-${caster}"
+    main_mesh_file="${main_mesh_file}"
+    sub_mesh_file="${sub_mesh_file}"
+    mesh_scale="0.001"
+    x="-0.3"
+    y="-0.3"
+    z="0.02"
+    R="0.0"
+    P="0.0"
+    Y="${PI/2}"
+    >
+  </xacro:mecanum_wheel_macro>
+<!-- BL -->
+  <xacro:mecanum_wheel_macro
+    name="wheel_BL"
+    parent_link="base_link"
+    mass="${wheel_mass}"
+    has_10_subwheel="true"
+    main_radius="${main_radius}"
+    caster="${caster}"
+    main_mesh_file="${main_mesh_file_rev}"
+    sub_mesh_file="${sub_mesh_file}"
+    mesh_scale="0.001"
+    x="-0.3"
+    y="0.3"
+    z="0.02"
+    R="0.0"
+    P="0.0"
+    Y="${PI/2}"
+    >
+  </xacro:mecanum_wheel_macro>
+
+
+
+
   <!-- Wheel FR -->
-  <joint name="wheel_FR_joint" type="continuous">
+  <!-- <joint name="wheel_FR_joint" type="continuous">
     <axis xyz="0 0 -1" />
-    <origin xyz="0.2 -0.2 0.05" rpy="${PI/2.0} 0 0"/>
+    <origin xyz="0.2 -0.4 0.05" rpy="${PI/2.0} 0 0"/>
     <parent link="base_link"/>
     <child link="wheel_FR_link"/>
   </joint>
@@ -72,16 +164,16 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="black"/>
+      <material name="red"/>
     </visual>
 
     <inertial>
@@ -92,10 +184,21 @@
         iyy="0.005" iyz="0.0"
         izz="0.009"/>
     </inertial>
-  </link>
+  </link> -->
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Wheel FL -->
-  <joint name="wheel_FL_joint" type="continuous">
+  <!-- <joint name="wheel_FL_joint" type="continuous">
     <axis xyz="0 0 -1" />
     <origin xyz="0.2 0.2 0.05" rpy="${PI/2.0} 0 0"/>
     <parent link="base_link"/>
@@ -107,14 +210,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="black"/>
     </visual>
@@ -127,10 +230,10 @@
         iyy="0.005" iyz="0.0"
         izz="0.009"/>
     </inertial>
-  </link>
+  </link> -->
 
 <!-- Wheel BR -->
-  <joint name="wheel_BR_joint" type="continuous">
+ <!--  <joint name="wheel_BR_joint" type="continuous">
     <axis xyz="0 0 -1" />
     <origin xyz="-0.2 -0.2 0.05" rpy="${PI/2.0} 0 0"/>
     <parent link="base_link"/>
@@ -142,14 +245,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="black"/>
     </visual>
@@ -162,10 +265,10 @@
         iyy="0.005" iyz="0.0"
         izz="0.009"/>
     </inertial>
-  </link>
+  </link> -->
 
 <!-- Wheel BL -->
-  <joint name="wheel_BL_joint" type="continuous">
+  <!-- <joint name="wheel_BL_joint" type="continuous">
     <axis xyz="0 0 -1" />
     <origin xyz="-0.2 0.2 0.05" rpy="${PI/2.0} 0 0"/>
     <parent link="base_link"/>
@@ -177,14 +280,14 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://ngws_description/meshes/chelun.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://ngws_description/meshes/mecanum_wheel.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="black"/>
     </visual>
@@ -197,7 +300,7 @@
         iyy="0.005" iyz="0.0"
         izz="0.009"/>
     </inertial>
-  </link>
+  </link> -->
 
 
 
@@ -206,7 +309,7 @@
 
   <!-- Laser -->
 
-  <joint name="laser_joint" type="fixed">
+ <!--  <joint name="laser_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.0 0 0.35" rpy="0 0 0"/>
     <parent link="base_link"/>
@@ -234,7 +337,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
-  </link>
+  </link> -->
 
 
   <joint name="camera_joint" type="fixed">

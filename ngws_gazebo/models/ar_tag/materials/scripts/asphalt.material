@@ -4,9 +4,9 @@ material ar_tag
 	{
 		pass
 		{
-			ambient 0.5 0.5 0.5 1.0
-			diffuse 0.5 0.5 0.5 1.0
-			specular 0.2 0.2 0.2 1.0 12.5
+			ambient 1 1 1 1.0
+			diffuse 1 1 1 1.0
+			specular 1 1 1 1.0 12.5
 
 			texture_unit
 			{

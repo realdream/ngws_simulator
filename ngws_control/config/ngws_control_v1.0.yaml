@@ -1,0 +1,76 @@
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  wheel_FR_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_FR_joint
+    pid: {p: 200.0, i: 0.0, d: 20}
+  wheel_FL_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_FL_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+  wheel_BR_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_BR_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+  wheel_BL_joint_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: wheel_BL_joint
+    pid: {p: 0.0, i: 0.0, d: 0}
+
+
+  wheel_group_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: 
+     - wheel_FR_joint
+     - wheel_FL_joint
+     - wheel_BR_joint
+     - wheel_BL_joint
+
+  sub_wheel_group_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: 
+     - wheel_FR_SB1_joint
+     - wheel_FL_SB1_joint
+     - wheel_BR_SB1_joint
+     - wheel_BL_SB1_joint
+     - wheel_FR_SB2_joint
+     - wheel_FL_SB2_joint
+     - wheel_BR_SB2_joint
+     - wheel_BL_SB2_joint
+     - wheel_FR_SB3_joint
+     - wheel_FL_SB3_joint
+     - wheel_BR_SB3_joint
+     - wheel_BL_SB3_joint
+     - wheel_FR_SB4_joint
+     - wheel_FL_SB4_joint
+     - wheel_BR_SB4_joint
+     - wheel_BL_SB4_joint
+     - wheel_FR_SB5_joint
+     - wheel_FL_SB5_joint
+     - wheel_BR_SB5_joint
+     - wheel_BL_SB5_joint
+     - wheel_FR_SB6_joint
+     - wheel_FL_SB6_joint
+     - wheel_BR_SB6_joint
+     - wheel_BL_SB6_joint
+     - wheel_FR_SB7_joint
+     - wheel_FL_SB7_joint
+     - wheel_BR_SB7_joint
+     - wheel_BL_SB7_joint
+     - wheel_FR_SB8_joint
+     - wheel_FL_SB8_joint
+     - wheel_BR_SB8_joint
+     - wheel_BL_SB8_joint
+     - wheel_FR_SB9_joint
+     - wheel_FL_SB9_joint
+     - wheel_BR_SB9_joint
+     - wheel_BL_SB9_joint
+     - wheel_FR_SB10_joint
+     - wheel_FL_SB10_joint
+     - wheel_BR_SB10_joint
+     - wheel_BL_SB10_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}

@@ -1,0 +1,32 @@
+<launch>
+  <arg name="id" default=""/>
+  <arg name="this_ns" default="ngws" />
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <group ns="$(arg this_ns)$(arg id)">
+    <rosparam file="$(find ngws_control)/config/ngws_control_v1.0.yaml" command="load"/>
+
+    <!-- load the controllers -->
+  <!--   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+  	output="screen" ns="/ngws" args="joint_state_controller
+  					  wheel_FR_joint_controller
+  					  wheel_FL_joint_controller
+              wheel_BR_joint_controller
+              wheel_BL_joint_controller"/> -->
+
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="joint_state_controller
+              wheel_group_controller
+              "/>
+
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+  	 output="screen" >
+      <param name="tf_perfix" value="aabbcc/" type="str"/>
+      <param name="publish_frequency" value="50.0" />
+      
+    </node>
+  </group>
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+
+</launch>

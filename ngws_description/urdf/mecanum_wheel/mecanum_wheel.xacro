@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="mecanum_wheel_macro"
+    params="name parent_link has_8_subwheel:=false has_10_subwheel:=false main_radius caster main_mesh_file sub_mesh_file mesh_scale mass x y z R P Y">
+	   
+
+		<joint name="${name}_joint" type="continuous">
+	    <origin xyz="${x} ${y} ${z}" rpy="${R} ${P} ${Y}" />
+	    <parent link="${parent_link}" />
+	    <child link="${name}_link" />
+	  </joint>
+
+		<link name="${name}_link">
+  		<collision>
+        <origin xyz="0 0 0" rpy="0 ${PI/2.0} 0"/>
+        <geometry>
+         <!--  <cylinder length="0.02" radius="0.03"/> -->
+          <mesh filename="${main_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 ${PI/2.0} 0"/>
+        <geometry>
+          <!-- <cylinder length="0.02" radius="0.03"/> -->
+          <mesh filename="${main_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+
+        </geometry>
+        <material name="red"/>
+      </visual>
+
+      <inertial>
+        <mass value="${mass}" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+          <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+      </inertial>
+		</link>
+    
+
+
+    <xacro:if value="${has_10_subwheel}">
+      <!--  sb1 -->
+      <joint name="${name}_SA1_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*0.5} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA1_link" />
+      </joint>
+      <link name="${name}_SA1_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB1_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA1_link" />
+              <child link="${name}_SB1_link" />
+      </joint>
+
+      <link name="${name}_SB1_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+      <!--  sb2 -->
+      <joint name="${name}_SA2_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+0.2)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA2_link" />
+      </joint>
+      <link name="${name}_SA2_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB2_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA2_link" />
+              <child link="${name}_SB2_link" />
+      </joint>
+
+      <link name="${name}_SB2_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+<!--  sb3 -->
+      <joint name="${name}_SA3_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+0.4)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA3_link" />
+      </joint>
+      <link name="${name}_SA3_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB3_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA3_link" />
+              <child link="${name}_SB3_link" />
+      </joint>
+
+      <link name="${name}_SB3_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+    <!--  sb4 -->
+      <joint name="${name}_SA4_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+0.6)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA4_link" />
+      </joint>
+      <link name="${name}_SA4_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB4_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA4_link" />
+              <child link="${name}_SB4_link" />
+      </joint>
+
+      <link name="${name}_SB4_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+     <!--  sb5 -->
+      <joint name="${name}_SA5_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+0.8)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA5_link" />
+      </joint>
+      <link name="${name}_SA5_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB5_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA5_link" />
+              <child link="${name}_SB5_link" />
+      </joint>
+
+      <link name="${name}_SB5_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+        <!--  sb6 -->
+      <joint name="${name}_SA6_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+1.0)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA6_link" />
+      </joint>
+      <link name="${name}_SA6_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB6_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA6_link" />
+              <child link="${name}_SB6_link" />
+      </joint>
+
+      <link name="${name}_SB6_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+        <!--  sb7 -->
+      <joint name="${name}_SA7_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+1.2)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA7_link" />
+      </joint>
+      <link name="${name}_SA7_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB7_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA7_link" />
+              <child link="${name}_SB7_link" />
+      </joint>
+
+      <link name="${name}_SB7_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+      <!--  sb8 -->
+      <joint name="${name}_SA8_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+1.4)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA8_link" />
+      </joint>
+      <link name="${name}_SA8_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB8_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA8_link" />
+              <child link="${name}_SB8_link" />
+      </joint>
+
+      <link name="${name}_SB8_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+  <!--  sb9 -->
+      <joint name="${name}_SA9_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+1.6)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA9_link" />
+      </joint>
+      <link name="${name}_SA9_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB9_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA9_link" />
+              <child link="${name}_SB9_link" />
+      </joint>
+
+      <link name="${name}_SB9_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+      <!--  sb10 -->
+      <joint name="${name}_SA10_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="${PI*(0.5+1.8)} 0 0" />
+              <parent link="${name}_link" />
+              <child link="${name}_SA10_link" />
+      </joint>
+      <link name="${name}_SA10_link">
+        <inertial>
+          <mass value="${mass/20.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>     
+      <joint name="${name}_SB10_joint" type="continuous">
+              <origin xyz="0 ${main_radius} 0" rpy="0 ${caster} 0" />
+              <parent link="${name}_SA10_link" />
+              <child link="${name}_SB10_link" />
+      </joint>
+
+      <link name="${name}_SB10_link">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+        </collision>
+
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 ${PI/2.0}"/>
+          <geometry>
+            <mesh filename="${sub_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+
+        <inertial>
+          <mass value="${mass/10.0}" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia
+          ixx="${mass*0.083*2*main_radius*main_radius/400}" ixy="0.0" ixz="0.0"
+          iyy="${mass*0.083*2*main_radius*main_radius}" iyz="0.0"
+          izz="${mass*0.083*2*main_radius*main_radius}"/>
+        </inertial>
+      </link>
+    </xacro:if>
+
+  </xacro:macro>
+</robot>

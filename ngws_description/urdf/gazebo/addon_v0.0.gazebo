@@ -12,26 +12,29 @@
 
 
   <gazebo reference="wheel_FL_joint">
-    <stopCfm>1000</stopCfm>
-    <stopErp>1000</stopErp>
+    <stopCfm>0.02</stopCfm>
+    <stopErp>1.2</stopErp>
     <implicitSpringDamper>0</implicitSpringDamper>
     <fudgeFactor>0.001</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_FR_joint">
-    <stopCfm>0.001</stopCfm>
+    <stopCfm>0.02</stopCfm>
+    <stopErp>1.2</stopErp>
     <implicitSpringDamper>0</implicitSpringDamper>
     <fudgeFactor>0.001</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BL_joint">
-    <stopCfm>0.001</stopCfm>
+    <stopCfm>0.02</stopCfm>
+    <stopErp>1.2</stopErp>
     <implicitSpringDamper>0</implicitSpringDamper>
     <fudgeFactor>0.001</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BR_joint">
-    <stopCfm>0.001</stopCfm>
+    <stopCfm>0.02</stopCfm>
+    <stopErp>1.2</stopErp>
     <implicitSpringDamper>0</implicitSpringDamper>
     <fudgeFactor>0.001</fudgeFactor>
   </gazebo>

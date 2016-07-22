@@ -1,0 +1,590 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <!-- <robotNamespace>/ngws1</robotNamespace> -->
+<!--       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+    </plugin>
+  </gazebo>
+
+<!-- 
+  <gazebo reference="wheel_FL_joint">
+    <stopCfm>0.02</stopCfm>
+    <stopErp>2.2</stopErp>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.000</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_joint">
+    <stopCfm>0.02</stopCfm>
+    <stopErp>2.2</stopErp>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.000</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_BL_joint">
+    <stopCfm>0.02</stopCfm>
+    <stopErp>2.2</stopErp>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.000</fudgeFactor>
+  </gazebo>
+
+  <gazebo reference="wheel_BR_joint">
+    <stopCfm>0.02</stopCfm>
+    <stopErp>2.2</stopErp>
+    <implicitSpringDamper>0</implicitSpringDamper>
+    <fudgeFactor>0.000</fudgeFactor>
+  </gazebo> -->
+
+  
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FL_link">
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_link">
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_BL_link">
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_BR_link">
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>100000</kp>
+    <kd>100000</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>0.00001</minDepth>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="camera_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="laser_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+<xacro:property name="subwheel_mu" value="50000"/>
+<xacro:property name="subwheel_kp" value="5000000"/>
+<xacro:property name="subwheel_kd" value="50000"/>
+<xacro:property name="subwheel_md" value="0.1"/>
+  <gazebo reference="wheel_FR_SB1_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB1_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB1_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB1_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB2_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB2_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB2_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB2_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB3_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB3_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB3_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB3_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB4_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB4_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB4_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB4_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB5_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB5_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB5_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB5_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB6_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB6_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB6_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB6_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB7_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB7_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB7_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB7_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB8_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB8_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB8_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB8_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_FR_SB9_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB9_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB9_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB9_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+    <gazebo reference="wheel_FR_SB10_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_FL_SB10_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BR_SB10_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="wheel_BL_SB10_link">
+    <mu1>${subwheel_mu}</mu1>
+    <mu2>${subwheel_mu}</mu2>
+    <fdir1>1 0 0</fdir1>
+    <kp>${subwheel_kp}</kp>
+    <kd>${subwheel_kd}</kd>
+    <dampingFactor>0</dampingFactor>
+    <minDepth>${subwheel_md}</minDepth>
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <!-- Link1 -->
+<!--   <gazebo reference="link1">
+    <material>Gazebo/Orange</material>
+  </gazebo> -->
+
+
+<!-- hokuyo -->
+  <gazebo reference="laser_link">
+    <sensor type="ray" name="head_laser_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.5</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_laser_controller" filename="libgazebo_ros_laser.so">
+        <topicName>laser/scan</topicName>
+        <frameName>hokuyo_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.0</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>2</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>  
+
+</robot>
