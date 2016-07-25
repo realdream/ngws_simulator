@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="ar_tag_-1_-1">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.05 0.05 .0001</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.05 0.05 .0001</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://ar_tag_-1_-1/materials/scripts</uri>
+            <uri>model://ar_tag_-1_-1/materials/textures</uri>
+            <name>ar_tag_-1_-1</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
