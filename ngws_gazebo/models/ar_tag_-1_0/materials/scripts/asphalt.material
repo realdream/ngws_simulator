@@ -1,0 +1,17 @@
+material ar_tag_-1_0
+{
+	technique
+	{
+		pass
+		{
+			ambient 1 1 1 1.0
+			diffuse 1 1 1 1.0
+			specular 1 1 1 1.0 12.5
+
+			texture_unit
+			{
+				texture -1_0.bmp
+			}
+		}
+	}
+}
