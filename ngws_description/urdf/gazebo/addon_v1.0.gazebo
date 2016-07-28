@@ -514,6 +514,16 @@
     <material>Gazebo/Orange</material>
   </gazebo> -->
 
+<!-- imu -->
+  <gazebo>
+      <plugin name="gazebo_ros_imu_sensor" filename="libgazebo_ros_imu.so">
+        <serviceName>/default_imu</serviceName>
+        <topicName>imu</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <bodyName>base_footprint</bodyName>
+        <updateRate>500</updateRate>
+      </plugin>
+  </gazebo>
 
 <!-- hokuyo -->
   <gazebo reference="laser_link">
