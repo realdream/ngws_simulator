@@ -13,8 +13,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>100000</mu>
-              <mu2>100000</mu2>
+              <mu>10000000000</mu>
+              <mu2>10000000000</mu2>
             </ode>
           </friction>
         </surface>
