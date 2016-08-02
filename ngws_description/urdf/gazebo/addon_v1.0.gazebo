@@ -9,82 +9,87 @@
     </plugin>
   </gazebo>
 
-<!-- 
-  <gazebo reference="wheel_FL_joint">
-    <stopCfm>0.02</stopCfm>
-    <stopErp>2.2</stopErp>
-    <implicitSpringDamper>0</implicitSpringDamper>
+
+<!--   <gazebo reference="wheel_FL_joint">
+    <stopCfm>0.2</stopCfm>
+    <stopErp>0.2</stopErp>
+    <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_FR_joint">
-    <stopCfm>0.02</stopCfm>
-    <stopErp>2.2</stopErp>
-    <implicitSpringDamper>0</implicitSpringDamper>
+    <stopCfm>0.2</stopCfm>
+    <stopErp>0.2</stopErp>
+    <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BL_joint">
-    <stopCfm>0.02</stopCfm>
-    <stopErp>2.2</stopErp>
-    <implicitSpringDamper>0</implicitSpringDamper>
+    <stopCfm>0.2</stopCfm>
+    <stopErp>0.2</stopErp>
+    <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BR_joint">
-    <stopCfm>0.02</stopCfm>
-    <stopErp>2.2</stopErp>
-    <implicitSpringDamper>0</implicitSpringDamper>
+    <stopCfm>0.2</stopCfm>
+    <stopErp>0.2</stopErp>
+    <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
-  </gazebo> -->
-
+  </gazebo>
+ -->
   
 
   <gazebo reference="base_link">
     <material>Gazebo/Orange</material>
   </gazebo>
 
+<xacro:property name="wheel_mu" value="0"/>
+<xacro:property name="wheel_kp" value="200000"/>
+<xacro:property name="wheel_kd" value="800"/>
+<xacro:property name="wheel_md" value="0.00001"/>
+
   <gazebo reference="wheel_FL_link">
-    <mu1>0</mu1>
-    <mu2>0</mu2>
+    <mu1>${wheel_mu}</mu1>
+    <mu2>${wheel_mu}</mu2>
     <fdir1>1 0 0</fdir1>
-    <kp>100000</kp>
-    <kd>100000</kd>
+    <kp>${wheel_kp}</kp>
+    <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
-    <minDepth>0.00001</minDepth>
+    <minDepth>${wheel_md}</minDepth>
     <material>Gazebo/Red</material>
   </gazebo>
 
   <gazebo reference="wheel_FR_link">
-    <mu1>0</mu1>
-    <mu2>0</mu2>
+    <mu1>${wheel_mu}</mu1>
+    <mu2>${wheel_mu}</mu2>
     <fdir1>1 0 0</fdir1>
-    <kp>100000</kp>
-    <kd>100000</kd>
+    <kp>${wheel_kp}</kp>
+    <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
-    <minDepth>0.00001</minDepth>
+    <minDepth>${wheel_md}</minDepth>
     <material>Gazebo/Red</material>
   </gazebo>
 
   <gazebo reference="wheel_BL_link">
-    <mu1>0</mu1>
-    <mu2>0</mu2>
+    <mu1>${wheel_mu}</mu1>
+    <mu2>${wheel_mu}</mu2>
     <fdir1>1 0 0</fdir1>
-    <kp>100000</kp>
-    <kd>100000</kd>
+    <kp>${wheel_kp}</kp>
+    <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
-    <minDepth>0.00001</minDepth>
+    <minDepth>${wheel_md}</minDepth>
     <material>Gazebo/Red</material>
   </gazebo>
 
   <gazebo reference="wheel_BR_link">
-    <mu1>0</mu1>
-    <mu2>0</mu2>
+    <mu1>${wheel_mu}</mu1>
+    <mu2>${wheel_mu}</mu2>
     <fdir1>1 0 0</fdir1>
-    <kp>100000</kp>
-    <kd>100000</kd>
+    <kp>${wheel_kp}</kp>
+    <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
-    <minDepth>0.00001</minDepth>
+    <minDepth>${wheel_md}</minDepth>
     <material>Gazebo/Red</material>
   </gazebo>
 
@@ -96,9 +101,9 @@
     <material>Gazebo/Grey</material>
   </gazebo>
 
-<xacro:property name="subwheel_mu" value="50000"/>
-<xacro:property name="subwheel_kp" value="5000000"/>
-<xacro:property name="subwheel_kd" value="50000"/>
+<xacro:property name="subwheel_mu" value="500000"/>
+<xacro:property name="subwheel_kp" value="20000000000"/>
+<xacro:property name="subwheel_kd" value="80000000"/>
 <xacro:property name="subwheel_md" value="0.1"/>
   <gazebo reference="wheel_FR_SB1_link">
     <mu1>${subwheel_mu}</mu1>
@@ -514,6 +519,16 @@
     <material>Gazebo/Orange</material>
   </gazebo> -->
 
+<!-- imu -->
+  <gazebo>
+      <plugin name="gazebo_ros_imu_sensor" filename="libgazebo_ros_imu.so">
+        <serviceName>/default_imu</serviceName>
+        <topicName>imu</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <bodyName>base_footprint</bodyName>
+        <updateRate>500</updateRate>
+      </plugin>
+  </gazebo>
 
 <!-- hokuyo -->
   <gazebo reference="laser_link">

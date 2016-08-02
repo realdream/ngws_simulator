@@ -14,8 +14,8 @@
   		<collision>
         <origin xyz="0 0 0" rpy="0 ${PI/2.0} 0"/>
         <geometry>
-         <!--  <cylinder length="0.02" radius="0.03"/> -->
-          <mesh filename="${main_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/>
+          <cylinder length="0.02" radius="0.03"/>
+          <!-- <mesh filename="${main_mesh_file}" scale="${mesh_scale} ${mesh_scale} ${mesh_scale}"/> -->
         </geometry>
       </collision>
 

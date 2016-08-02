@@ -114,6 +114,19 @@
 	},
 	"file_history":
 	[
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/asphalt_plane/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_-1_-1/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_-1_0/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_-1_1/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_0_-1/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_0_0/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_0_1/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_1_-1/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_1_0/model.config",
+		"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models/ar_tag_1_1/model.config",
+		"/home/yrk-16/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/yrk-16/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/materials.xacro",
 		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/rrbot.gazebo",
 		"/home/ros/gazebo_test/src/gazebo_ros_demos/rrbot_description/urdf/rrbot.xacro",
@@ -228,20 +241,7 @@
 		"/home/project/px4/Firmware/ROMFS/px4fmu_common/init.d/rcS",
 		"/home/project/px4/Firmware/NuttX/apps/examples/sendmail/hostdefs.h",
 		"/home/project/px4/Firmware/msg/actuator_controls.msg",
-		"/home/project/px4/Firmware/src/drivers/device/cdev.cpp",
-		"/home/project/px4/Firmware/NuttX/NxWidgets/ChangeLog.txt",
-		"/home/project/px4/Firmware/src/drivers/boards/sitl/sitl_led.c",
-		"/home/project/px4/Firmware/NuttX/nuttx/include/termios.h",
-		"/home/project/px4/Firmware/src/drivers/drv_hrt.h",
-		"/home/project/px4/Firmware/src/modules/ekf_att_pos_estimator/AttitudePositionEstimatorEKF.h",
-		"/home/project/px4/Firmware/msg/actuator_outputs.msg",
-		"/home/project/px4/Firmware/msg/actuator_armed.msg",
-		"/home/project/px4/Firmware/cmake/configs/qurt_eagle_default.cmake",
-		"/home/project/px4/Firmware/msg/battery_status.msg",
-		"/home/project/px4/Firmware/src/drivers/mpu6000/mpu6000.cpp",
-		"/home/project/px4/Firmware/src/modules/systemlib/param/param.h",
-		"/home/project/px4/Firmware/src/drivers/pwm_out_rc_in/pwm_out_rc_in.cpp",
-		"/home/project/px4/Firmware/src/drivers/snapdragon_rc_pwm/snapdragon_rc_pwm.cpp"
+		"/home/project/px4/Firmware/src/drivers/device/cdev.cpp"
 	],
 	"find":
 	{
@@ -252,6 +252,7 @@
 		"height": 145.0,
 		"where_history":
 		[
+			"/home/ros/kinetic/NGWS/gz_test/src/ngws_simulator/ngws_gazebo/models",
 			"/home/yrk/.gazebo/models/lamp_post",
 			"/home/ros/gazebo_test/src/gazebo_ros_demos",
 			"/home/ros/mav/rotors_simulator/src/rotors_simulator/rotors_description",
@@ -290,6 +291,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"  <sdf version=\"1.5\">model.sdf</sdf>",
 			"          <cylinder radius=\"0.06\" length=\"0.5\"/>",
 			"          <cylinder radius=\"0.06\" length=\"0.00005\"/>",
 			"          <cylinder>\n            <radius>0.06</radius>\n            <length>0.00005</length>\n          </cylinder>",
@@ -416,8 +418,7 @@
 			"_mixers",
 			"init",
 			"ioctl",
-			"init",
-			"ioctl"
+			"init"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -425,6 +426,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"  <sdf version=\"1.5\">model.sdf</sdf>\n  <sdf version=\"1.6\">model.sdf</sdf>",
 			"          <cylinder radius=\"0.075\" length=\"0.005\"/>",
 			"          <cylinder radius=\"0.06\" length=\"0.5\"/>",
 			"          <cylinder radius=\"0.06\" length=\"0.00005\"/>",
