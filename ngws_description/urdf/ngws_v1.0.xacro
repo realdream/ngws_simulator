@@ -74,14 +74,29 @@
 
   <link name="bridge1_link">
     <collision>
-      <origin xyz="0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.01" />
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="0.1 -0.2 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.01" />
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <visual>
+      <origin xyz="0.1 -0.2 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
@@ -96,6 +111,7 @@
     iyy="${mass_b*0.083*2*width*width}" iyz="0.0"
     izz="${mass_b*0.083*2*width*width}"/>
     </inertial>
+
   </link>
 
   <joint name="bridge2_joint" type="prismatic">
@@ -110,14 +126,29 @@
 
   <link name="bridge2_link">
     <collision>
-      <origin xyz="-0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="-0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.01" />
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="-0.1 -0.2 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="-0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="-0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.01" />
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <visual>
+      <origin xyz="-0.1 -0.2 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
@@ -132,6 +163,7 @@
     iyy="${mass_b*0.083*2*width*width}" iyz="0.0"
     izz="${mass_b*0.083*2*width*width}"/>
     </inertial>
+
   </link>
 
   <joint name="bridge_m_joint" type="revolute">
@@ -146,14 +178,29 @@
 
   <link name="bridge_m_link">
     <collision>
-      <origin xyz="0 0 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <origin xyz="0 0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <geometry>
+        <box size="0.01 0.01 0.25"/>
+      </geometry>
+    </collision>
+
+    <collision>
+      <origin xyz="0 -0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
       <geometry>
         <box size="0.01 0.01 0.25"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <origin xyz="0 0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <geometry>
+        <box size="0.01 0.01 0.25"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <visual>
+      <origin xyz="0 -0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
       <geometry>
         <box size="0.01 0.01 0.25"/>
       </geometry>
@@ -168,6 +215,7 @@
     iyy="${mass_b*0.083*2*width*width}" iyz="0.0"
     izz="${mass_b*0.083*2*width*width}"/>
     </inertial>
+
   </link>
 
   <!-- subwheel -->
