@@ -1,20 +1,24 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <model name="asphalt_plane">
+    <pose>0 0 -0.05 0 0 0</pose>
     <static>true</static>
     <link name="link">
       <collision name="collision">
         <geometry>
-          <plane>
+<!--           <plane>
             <normal>0 0 1</normal>
             <size>20 20</size>
-          </plane>
+          </plane> -->
+          <box>
+            <size>20 20 .1</size>
+          </box>
         </geometry>
         <surface>
           <friction>
             <ode>
-              <mu>15</mu>
-              <mu2>15</mu2>
+              <mu>50</mu>
+              <mu2>50</mu2>
             </ode>
           </friction>
         </surface>
@@ -22,10 +26,13 @@
       <visual name="visual">
         <cast_shadows>false</cast_shadows>
         <geometry>
-          <plane>
+<!--           <plane>
             <normal>0 0 1</normal>
             <size>20 20</size>
-          </plane>
+          </plane> -->
+          <box>
+            <size>20 20 .1</size>
+          </box>
         </geometry>
         <material>
           <script>
@@ -35,6 +42,17 @@
           </script>
         </material>
       </visual>
+      <inertial>
+          <mass>100000</mass>
+          <inertia>
+            <ixx>1000</ixx>
+            <iyy>1000</iyy>
+            <izz>1000</izz>
+            <ixy>0.0</ixy>
+            <ixz>0.0</ixz>
+            <iyz>0.0</iyz>
+          </inertia>
+        </inertial>
     </link>
   </model>
 </sdf>

@@ -10,34 +10,34 @@
   </gazebo>
 
 
-<!--   <gazebo reference="wheel_FL_joint">
-    <stopCfm>0.2</stopCfm>
-    <stopErp>0.2</stopErp>
+  <gazebo reference="wheel_FL_joint">
+    <stopCfm>0.000</stopCfm>
+    <stopErp>0.6</stopErp>
     <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_FR_joint">
-    <stopCfm>0.2</stopCfm>
-    <stopErp>0.2</stopErp>
+    <stopCfm>0.0</stopCfm>
+    <stopErp>0.6</stopErp>
     <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BL_joint">
-    <stopCfm>0.2</stopCfm>
-    <stopErp>0.2</stopErp>
+    <stopCfm>0.0</stopCfm>
+    <stopErp>0.6</stopErp>
     <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
 
   <gazebo reference="wheel_BR_joint">
-    <stopCfm>0.2</stopCfm>
-    <stopErp>0.2</stopErp>
+    <stopCfm>0.0</stopCfm>
+    <stopErp>0.6</stopErp>
     <implicitSpringDamper>1</implicitSpringDamper>
     <fudgeFactor>0.000</fudgeFactor>
   </gazebo>
- -->
+
   
 
   <gazebo reference="base_link">
@@ -49,7 +49,7 @@
 <xacro:property name="wheel_kd" value="800000000"/>
 <xacro:property name="wheel_md" value="0.00001"/>
 
-<xacro:property name="bridge_mu" value="0.005"/>
+<xacro:property name="bridge_mu" value="0.5"/>
   <gazebo reference="bridge_m_link">
     <mu1>${bridge_mu}</mu1>
     <mu2>${bridge_mu}</mu2>
@@ -86,7 +86,7 @@
   <gazebo reference="wheel_FL_link">
     <mu1>${wheel_mu}</mu1>
     <mu2>${wheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${wheel_kp}</kp>
     <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -97,7 +97,7 @@
   <gazebo reference="wheel_FR_link">
     <mu1>${wheel_mu}</mu1>
     <mu2>${wheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${wheel_kp}</kp>
     <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -108,7 +108,7 @@
   <gazebo reference="wheel_BL_link">
     <mu1>${wheel_mu}</mu1>
     <mu2>${wheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${wheel_kp}</kp>
     <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -119,7 +119,7 @@
   <gazebo reference="wheel_BR_link">
     <mu1>${wheel_mu}</mu1>
     <mu2>${wheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${wheel_kp}</kp>
     <kd>${wheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -135,14 +135,14 @@
     <material>Gazebo/Grey</material>
   </gazebo>
 
-<xacro:property name="subwheel_mu" value="15"/>
+<xacro:property name="subwheel_mu" value="55"/>
 <xacro:property name="subwheel_kp" value="20000000000"/>
 <xacro:property name="subwheel_kd" value="80000000"/>
-<xacro:property name="subwheel_md" value="0.1"/>
+<xacro:property name="subwheel_md" value="0.0000000001"/>
   <gazebo reference="wheel_FR_SB1_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -152,7 +152,7 @@
   <gazebo reference="wheel_FL_SB1_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -162,7 +162,7 @@
   <gazebo reference="wheel_BR_SB1_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -172,7 +172,7 @@
   <gazebo reference="wheel_BL_SB1_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -183,7 +183,7 @@
   <gazebo reference="wheel_FR_SB2_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -193,7 +193,7 @@
   <gazebo reference="wheel_FL_SB2_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -203,7 +203,7 @@
   <gazebo reference="wheel_BR_SB2_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -213,7 +213,7 @@
   <gazebo reference="wheel_BL_SB2_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -224,7 +224,7 @@
   <gazebo reference="wheel_FR_SB3_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -234,7 +234,7 @@
   <gazebo reference="wheel_FL_SB3_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -244,7 +244,7 @@
   <gazebo reference="wheel_BR_SB3_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -254,7 +254,7 @@
   <gazebo reference="wheel_BL_SB3_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -265,7 +265,7 @@
   <gazebo reference="wheel_FR_SB4_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -275,7 +275,7 @@
   <gazebo reference="wheel_FL_SB4_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -285,7 +285,7 @@
   <gazebo reference="wheel_BR_SB4_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -295,7 +295,7 @@
   <gazebo reference="wheel_BL_SB4_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -306,7 +306,7 @@
   <gazebo reference="wheel_FR_SB5_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -316,7 +316,7 @@
   <gazebo reference="wheel_FL_SB5_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -326,7 +326,7 @@
   <gazebo reference="wheel_BR_SB5_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -336,7 +336,7 @@
   <gazebo reference="wheel_BL_SB5_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -347,7 +347,7 @@
   <gazebo reference="wheel_FR_SB6_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -357,7 +357,7 @@
   <gazebo reference="wheel_FL_SB6_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -367,7 +367,7 @@
   <gazebo reference="wheel_BR_SB6_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -377,7 +377,7 @@
   <gazebo reference="wheel_BL_SB6_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -388,7 +388,7 @@
   <gazebo reference="wheel_FR_SB7_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -398,7 +398,7 @@
   <gazebo reference="wheel_FL_SB7_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -408,7 +408,7 @@
   <gazebo reference="wheel_BR_SB7_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -418,7 +418,7 @@
   <gazebo reference="wheel_BL_SB7_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -429,7 +429,7 @@
   <gazebo reference="wheel_FR_SB8_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -439,7 +439,7 @@
   <gazebo reference="wheel_FL_SB8_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -449,7 +449,7 @@
   <gazebo reference="wheel_BR_SB8_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -459,7 +459,7 @@
   <gazebo reference="wheel_BL_SB8_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -470,7 +470,7 @@
   <gazebo reference="wheel_FR_SB9_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -480,7 +480,7 @@
   <gazebo reference="wheel_FL_SB9_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -490,7 +490,7 @@
   <gazebo reference="wheel_BR_SB9_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -500,7 +500,7 @@
   <gazebo reference="wheel_BL_SB9_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -511,7 +511,7 @@
     <gazebo reference="wheel_FR_SB10_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -521,7 +521,7 @@
   <gazebo reference="wheel_FL_SB10_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -531,7 +531,7 @@
   <gazebo reference="wheel_BR_SB10_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
@@ -541,17 +541,14 @@
   <gazebo reference="wheel_BL_SB10_link">
     <mu1>${subwheel_mu}</mu1>
     <mu2>${subwheel_mu}</mu2>
-    <fdir1>1 0 0</fdir1>
+    <fdir1>0 0 0</fdir1>
     <kp>${subwheel_kp}</kp>
     <kd>${subwheel_kd}</kd>
     <dampingFactor>0</dampingFactor>
     <minDepth>${subwheel_md}</minDepth>
     <material>Gazebo/Black</material>
   </gazebo>
-  <!-- Link1 -->
-<!--   <gazebo reference="link1">
-    <material>Gazebo/Orange</material>
-  </gazebo> -->
+
 
 <!-- imu -->
   <gazebo>

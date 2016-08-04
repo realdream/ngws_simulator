@@ -4,7 +4,7 @@
 
   <!-- Constants for robot dimensions -->
   <xacro:property name="PI" value="3.1415926535897931"/>
-  <xacro:property name="mass" value="60" /> <!-- arbitrary value for mass -->
+  <xacro:property name="mass" value="40" /> <!-- arbitrary value for mass -->
   <xacro:property name="width" value="0.6" /> <!-- Square dimensions (widthxwidth) of beams -->
 
 
@@ -171,19 +171,21 @@
   </link>
 
   <!-- subwheel -->
-    <xacro:property name="wheel_mass" value="5"/>
+    <xacro:property name="wheel_mass" value="2"/>
     <xacro:property name="main_radius" value="0.041"/>
     <xacro:property name="caster" value="${PI*0.25}"/>
 
     <xacro:property name="main_mesh_file" value="package://ngws_description/meshes/mecanum_wheel.stl"/>
     <xacro:property name="main_mesh_file_rev" value="package://ngws_description/meshes/mecanum_wheel_r.stl"/>
-    <xacro:property name="sub_mesh_file" value="package://ngws_description/meshes/mecanum_miniwheel.stl"/>
+    <xacro:property name="sub_mesh_file" value="package://ngws_description/meshes/mecanum_miniwheel_small.stl"/>
 
+    <xacro:property name="wheel_T_offset" value="${PI/100*0}"/>
 
   <!-- FR -->
   <xacro:mecanum_wheel_macro
     name="wheel_FR"
     parent_link="bridge1_link"
+    joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
     main_radius="${main_radius}"
@@ -194,7 +196,7 @@
     x="0.3"
     y="-0.3"
     z="0.02"
-    R="0.0"
+    R="${wheel_T_offset}"
     P="0.0"
     Y="${PI/2}"
     >
@@ -205,6 +207,7 @@
   <xacro:mecanum_wheel_macro
     name="wheel_FL"
     parent_link="bridge2_link"
+    joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
     main_radius="${main_radius}"
@@ -215,15 +218,17 @@
     x="0.3"
     y="0.3"
     z="0.02"
-    R="0.0"
+    R="${wheel_T_offset}"
     P="0.0"
     Y="${PI/2}"
     >
   </xacro:mecanum_wheel_macro>
+  
 <!-- BR -->
   <xacro:mecanum_wheel_macro
     name="wheel_BR"
     parent_link="bridge2_link"
+    joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
     main_radius="${main_radius}"
@@ -234,15 +239,18 @@
     x="-0.3"
     y="-0.3"
     z="0.02"
-    R="0.0"
+    R="${wheel_T_offset}"
     P="0.0"
     Y="${PI/2}"
     >
   </xacro:mecanum_wheel_macro>
+
+
 <!-- BL -->
   <xacro:mecanum_wheel_macro
     name="wheel_BL"
     parent_link="bridge1_link"
+    joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
     main_radius="${main_radius}"
@@ -253,12 +261,11 @@
     x="-0.3"
     y="0.3"
     z="0.02"
-    R="0.0"
+    R="${wheel_T_offset}"
     P="0.0"
     Y="${PI/2}"
     >
   </xacro:mecanum_wheel_macro>
-
 
 
 
