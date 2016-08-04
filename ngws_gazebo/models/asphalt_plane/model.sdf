@@ -11,7 +11,7 @@
             <size>20 20</size>
           </plane> -->
           <box>
-            <size>20 20 .1</size>
+            <size>50 50 .1</size>
           </box>
         </geometry>
         <surface>
@@ -31,7 +31,7 @@
             <size>20 20</size>
           </plane> -->
           <box>
-            <size>20 20 .1</size>
+            <size>50 50 .1</size>
           </box>
         </geometry>
         <material>

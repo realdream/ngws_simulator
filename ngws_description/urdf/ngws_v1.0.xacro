@@ -4,7 +4,7 @@
 
   <!-- Constants for robot dimensions -->
   <xacro:property name="PI" value="3.1415926535897931"/>
-  <xacro:property name="mass" value="40" /> <!-- arbitrary value for mass -->
+  <xacro:property name="mass" value="30" /> <!-- arbitrary value for mass -->
   <xacro:property name="width" value="0.6" /> <!-- Square dimensions (widthxwidth) of beams -->
 
 
@@ -60,7 +60,7 @@
     </inertial>
   </link>
 
-  <xacro:property name="mass_b" value="0.5" /> <!-- arbitrary value for mass -->
+  <xacro:property name="mass_b" value="5" /> <!-- arbitrary value for mass -->
 
   <joint name="bridge1_joint" type="prismatic">
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -74,14 +74,14 @@
 
   <link name="bridge1_link">
     <collision>
-      <origin xyz="0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
@@ -89,7 +89,7 @@
     </visual>
 
     <inertial>
-      <origin xyz="0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <mass value="${mass_b}"/>
       <inertia
     ixx="${mass_b*0.083*2*width*width}" ixy="0.0" ixz="0.0"
@@ -110,14 +110,14 @@
 
   <link name="bridge2_link">
     <collision>
-      <origin xyz="-0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="-0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="-0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="-0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <geometry>
         <cylinder radius="0.005" length="0.01" />
       </geometry>
@@ -125,7 +125,7 @@
     </visual>
 
     <inertial>
-      <origin xyz="-0.1 0.2 0.05" rpy="${PI*0.5} 0 0"/>
+      <origin xyz="-0.1 0 0.05" rpy="${PI*0.5} 0 0"/>
       <mass value="${mass_b}"/>
       <inertia
     ixx="${mass_b*0.083*2*width*width}" ixy="0.0" ixz="0.0"
@@ -146,14 +146,14 @@
 
   <link name="bridge_m_link">
     <collision>
-      <origin xyz="0 0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <origin xyz="0 0 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
       <geometry>
         <box size="0.01 0.01 0.25"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="0 0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <origin xyz="0 0 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
       <geometry>
         <box size="0.01 0.01 0.25"/>
       </geometry>
@@ -161,7 +161,7 @@
     </visual>
 
     <inertial>
-      <origin xyz="0 0.2 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
+      <origin xyz="0 0 0" rpy="${PI*0.5} 0 ${PI*0.5}"/>
       <mass value="${mass_b}"/>
       <inertia
     ixx="${mass_b*0.083*2*width*width}" ixy="0.0" ixz="0.0"
@@ -184,7 +184,7 @@
   <!-- FR -->
   <xacro:mecanum_wheel_macro
     name="wheel_FR"
-    parent_link="bridge1_link"
+    parent_link="bridge2_link"
     joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
@@ -206,7 +206,7 @@
 
   <xacro:mecanum_wheel_macro
     name="wheel_FL"
-    parent_link="bridge2_link"
+    parent_link="bridge1_link"
     joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
@@ -227,7 +227,7 @@
 <!-- BR -->
   <xacro:mecanum_wheel_macro
     name="wheel_BR"
-    parent_link="bridge2_link"
+    parent_link="bridge1_link"
     joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
@@ -249,7 +249,7 @@
 <!-- BL -->
   <xacro:mecanum_wheel_macro
     name="wheel_BL"
-    parent_link="bridge1_link"
+    parent_link="bridge2_link"
     joint_type="continuous"
     mass="${wheel_mass}"
     has_10_subwheel="true"
