@@ -553,7 +553,7 @@
 <!-- imu -->
   <gazebo>
       <plugin name="gazebo_ros_imu_sensor" filename="libgazebo_ros_imu.so">
-        <serviceName>/default_imu</serviceName>
+        <serviceName>default_imu</serviceName>
         <topicName>imu</topicName>
         <gaussianNoise>0.01</gaussianNoise>
         <bodyName>base_footprint</bodyName>
