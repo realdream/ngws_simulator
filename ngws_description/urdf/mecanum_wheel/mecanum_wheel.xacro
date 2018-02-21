@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="mecanum_wheel_macro"
-    params="name parent_link has_8_subwheel:=false has_10_subwheel:=false main_radius caster main_mesh_file sub_mesh_file mesh_scale mass x y z R P Y">
+    params="name parent_link joint_type has_8_subwheel:=false has_10_subwheel:=false main_radius caster main_mesh_file sub_mesh_file mesh_scale mass x y z R P Y">
 	   
 
-		<joint name="${name}_joint" type="continuous">
+		<joint name="${name}_joint" type="${joint_type}">
 	    <origin xyz="${x} ${y} ${z}" rpy="${R} ${P} ${Y}" />
 	    <parent link="${parent_link}" />
 	    <child link="${name}_link" />
